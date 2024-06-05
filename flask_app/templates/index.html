@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <title>Pokedex Test API</title>
+</head>
+<body>
+    <div>
+        <nav class="bg-danger text-light d-flex justify-content-between">
+            <h1 class="mx-5 my-1">
+                Pokedex Test API
+            </h1>
+        </nav>
+
+        <div>
+            <h1 class="text-center">
+                Welcome to your Pokedex
+            </h1>
+
+            <div style="width: 400px;" class="mx-auto">
+                <!-- Todo: Create Get Route to PokeAPI -->
+                <form action="/pkmn/add_pkmn" method="post">
+                    <div class="form-floating mb-3">
+                        <input name="pkmn_name" type="text" class="form-control">
+                        <label for="pkmn_name" class="form-label">
+                            Add a new Pokemon to the Database
+                        </label>
+                    </div>
+
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-danger btn-lg my-3">
+                            Add Pokemon
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="my-2">
+                <h3 class="text-center">
+                    Below are all of the Pokemon entered to the DB from PokeAPI
+                </h3>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td class="bg-danger text-light text-center">
+                                Poke ID
+                            </td>
+                            <td class="bg-danger text-light text-center">
+                                Sprite
+                            </td>
+                            <td class="bg-danger text-light text-center">
+                                Name
+                            </td>
+                            <td class="bg-danger text-light text-center">
+                                Type One
+                            </td>
+                            <td class="bg-danger text-light text-center">
+                                Type Two
+                            </td>
+                            <td class="bg-danger text-light text-center">
+                                Base Stat Total
+                            </td>
+                        </tr>
+                    </thead>
+
+                    <!-- Todo: Render all Pkmn in DB -->
+                    <tbody>
+                        {% for one_pkmn in all_pkmn %}
+                        <tr class="text-center">
+                            <td>
+                                {{one_pkmn.poke_id}}
+                            </td>
+                            <td>
+                                <a href="/pkmn/show_one/{{one_pkmn.poke_name}}">
+                                    <img src={{one_pkmn.sprite_default}} alt="default_sprite">
+                                </a>
+                            </td>
+                            <td>
+                                {{ one_pkmn.poke_name }}
+                            </td>
+                            <td>
+                                {{ one_pkmn.type_one }}
+                            </td>
+                            <td>
+                                {{ one_pkmn.type_two }}
+                            </td>
+                            <!-- * Base Stat Total -->
+                            <td>
+                                {{ one_pkmn.hp_stat + one_pkmn.attack_stat+ one_pkmn.defense_stat + one_pkmn.spec_attack_stat + one_pkmn.spec_defense_stat + one_pkmn.speed_stat }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

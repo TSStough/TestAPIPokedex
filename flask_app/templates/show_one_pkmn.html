@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <title>Test Pokedex API</title>
+</head>
+<body>
+    <div>
+        <nav class="bg-danger text-light d-flex justify-content-between">
+            <a href="/" class="mx-5 my-1 navbar-brand">
+                <h1>
+                    Pokedex Test API
+                </h1>
+            </a>
+        </nav>
+
+        <!-- * Main Container Div -->
+        <div>
+            <!-- * Top Div -->
+            <div class="card mx-auto my-3" style="width: 20rem;">
+                <div class="d-flex card-img-top justify-content-around">
+                    <img src={{one_pkmn.sprite_default}} alt="default_sprite">
+                    <img src={{one_pkmn.sprite_shiny}} alt="shiny_sprite">
+                </div>
+
+                <div class="card-body mx-auto">
+                    <h1 class="card-title text-center">
+                        {{ one_pkmn.poke_id }} {{ one_pkmn.poke_name }}
+                    </h1>
+    
+                    <div class="d-flex mx-auto">
+                        <h4 class="border rounded mx-2">
+                            {{ one_pkmn.type_one }}
+                        </h4>
+                        <h4 class="border rounded mx-2">
+                            {{ one_pkmn.type_two }}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!-- * End of Top Div -->
+    
+            <!-- * Bottom Div -->
+            <div class="mx-auto" style="width: 20rem;">
+                <h3 class="text-center">
+                    Base Stat Total<br>
+                    {{ base_stat_total }}
+                </h3>
+    
+                <div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr class="text-center">
+                                <td>
+                                    Statistic
+                                </td>
+                                <td>
+                                    Value
+                                </td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr class="text-center">
+                                <td>
+                                    HP
+                                </td>
+                                <td>
+                                    {{ one_pkmn.hp_stat }}
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>
+                                    Atk
+                                </td>
+                                <td>
+                                    {{ one_pkmn.attack_stat }}
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>
+                                    Def
+                                </td>
+                                <td>
+                                    {{ one_pkmn.defense_stat }}
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>
+                                    Spec Atk
+                                </td>
+                                <td>
+                                    {{ one_pkmn.spec_attack_stat }}
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>
+                                    Spec Def
+                                </td>
+                                <td>
+                                    {{ one_pkmn.spec_defense_stat }}
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>
+                                    Spd
+                                </td>
+                                <td>
+                                    {{ one_pkmn.speed_stat }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+            <!-- * End of Bottom Div -->
+        </div>
+        <!-- * End of Main Container Div -->
+
+    </div>
+    
+</body>
+</html>
